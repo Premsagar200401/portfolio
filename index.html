@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premsagar AC | Portfolio</title>
+    <!-- <link rel="stylesheet" href="./portfolio.css"> -->
+     <style>
+        /* Global Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: radial-gradient(circle at top, #081b29, #000);
+    color: #e6f1ff;
+    overflow-x: hidden;
+}
+
+/* Navbar */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    backdrop-filter: blur(15px);
+    background: rgba(0, 0, 0, 0.35);
+    border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+    background: linear-gradient(90deg, #00eaff, #00ddff, #00ffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+nav a {
+    margin-left: 25px;
+    text-decoration: none;
+    color: #e6f1ff;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: #00eaff;
+    text-shadow: 0 0 10px #00eaff;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 80px;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 55px;
+    font-weight: 800;
+    margin-top: 20px;
+}
+
+.hero h1 span {
+    background: linear-gradient(90deg, #00eaff, #00ddff, #00ffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+.hero p {
+    font-size: 20px;
+    margin-top: 15px;
+    opacity: 0.8;
+}
+
+/* Profile Photo */
+.profile-photo {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid rgba(0, 255, 255, 0.6);
+    box-shadow: 0 0 20px rgba(0, 234, 255, 0.7);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-photo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(0, 234, 255, 0.9);
+}
+
+/* Glow Button */
+.hero button {
+    margin-top: 25px;
+    padding: 12px 25px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #000;
+    background: #00eaff;
+    border-radius: 8px;
+    border: none;
+    transition: 0.3s;
+    box-shadow: 0 0 15px #00eaff;
+}
+
+.hero button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px #00eaff;
+}
+
+/* Section Titles */
+section h2 {
+    font-size: 35px;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, #00eaff, #00ddff, #00ffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+
+/* About Section */
+.about {
+    padding: 100px 50px;
+    text-align: center;
+    max-width: 900px;
+    margin: auto;
+    font-size: 18px;
+    line-height: 1.8;
+    opacity: 0.9;
+}
+
+/* Skills Section */
+.skills {
+    padding: 80px 50px;
+    text-align: center;
+}
+
+.skill-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.skill-box {
+    padding: 14px 24px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+    color: #00eaff;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.skill-box:hover {
+    background: rgba(0, 255, 255, 0.15);
+    transform: translateY(-5px);
+    box-shadow: 0 0 15px #00eaff;
+}
+
+/* Projects Section */
+.projects {
+    padding: 80px 50px;
+    text-align: center;
+}
+
+.project-container {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.project-card {
+    width: 300px;
+    padding: 25px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(0, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    text-align: left;
+    transition: 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px #00eaff;
+}
+
+.project-card h3 {
+    color: #00eaff;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.project-card p {
+    font-size: 15px;
+    opacity: 0.8;
+    margin-bottom: 15px;
+}
+
+.project-card a {
+    text-decoration: none;
+    color: #00eaff;
+    font-weight: 600;
+}
+
+/* Contact Section */
+.contact {
+    padding: 80px 50px;
+    text-align: center;
+}
+
+.contact form {
+    max-width: 500px;
+    margin: auto;
+}
+
+.contact input,
+.contact textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    margin-bottom: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.contact button {
+    width: 100%;
+    padding: 12px;
+    background: #00eaff;
+    color: #000;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 15px #00eaff;
+}
+
+footer {
+    padding: 20px;
+    text-align: center;
+    background: #000;
+    margin-top: 50px;
+}
+
+/* Responsive */
+@media(max-width: 768px) {
+    .hero h1 { font-size: 35px; }
+    nav { display: none; }
+}
+
+     </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <div class="logo">Premsagar AC</div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <!-- Profile Photo -->
+            <div class="profile-photo">
+                <img src="./WhatsApp Image 2025-12-02 at 15.49.03_35cc8ebf.jpg" alt="Premsagar AC">
+            </div>
+            <h1>Hello, I'm <span>Premsagar AC</span></h1>
+            <p>Software Engineer | Java Full Stack Developer</p>
+            <button onclick="scrollToSection('contact')">Hire Me</button>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="about">
+        <h2>About Me</h2>
+        <p>
+            I am a Computer Science Engineering graduate (2025) passionate about Java development,
+            Web development, and creating clean UI designs. I love building efficient, scalable 
+            applications and continuously improving my skills.
+        </p>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="skills">
+        <h2>My Skills</h2>
+        <div class="skill-container">
+            <div class="skill-box">Java</div>
+            <div class="skill-box">HTML</div>
+            <div class="skill-box">CSS</div>
+            <div class="skill-box">JavaScript</div>
+            <div class="skill-box">React</div>
+            <div class="skill-box">SQL</div>
+            <div class="skill-box">MySQL</div>
+            <div class="skill-box">Git & GitHub</div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="projects">
+        <h2>Projects</h2>
+        <div class="project-container">
+            <div class="project-card">
+                <h3>A Safety Protocal for Forest to Enhance Safety</h3>
+                <p>The Forest Safety Protocol is a structured set of guidelines developed to ensure the safety and protection of
+                   visitors, forest staff, and wildlife within forested environments. As forests can pose natural risks—including
+                   encounters with wild animals, disorientation, fire hazards, and adverse weather—it is essential to adopt a
+                   proactive and preventive approach to minimize dangers while preserving the ecological balance.
+                </p>
+                <a href="#" target="_blank">View</a>
+            </div>
+            <div class="project-card">
+                <h3>Managing Security Across Multiple Environments</h3>
+                <p>Implemented secure multi-environment management for web applications by using environment-specific configurations, secret vaults, and role-based access control, ensuring safe deployments across Development, Staging, and Production environments.</p>
+                <a href="#" target="_blank">View</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <h2>Contact Me</h2>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Email Address" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        © 2025 Premsagar AC. All Rights Reserved.
+    </footer>
+
+    <!-- <script src="./portfolio.js"></script> -->
+     <script>
+        // Smooth scroll to section
+        function scrollToSection(id) {
+        document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+       }
+
+     </script>
+</body>
+</html>
